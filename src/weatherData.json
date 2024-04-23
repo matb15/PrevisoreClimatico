@@ -21,7 +21,7 @@
         "temperature_2m": 8.6,
         "relative_humidity_2m": 79,
         "precipitation": 0.20,
-        "weather_code": 2,
+        "weather_code": 53,
         "wind_speed_10m": 7.1
     },
     "hourly_units": {
