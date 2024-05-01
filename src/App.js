@@ -1,30 +1,34 @@
 import React from "react";
 import "./App.css";
 import weatherData from "./weatherData.json";
-import WeatherCard from "./WeatherCard";
-import WeatherChart from "./WeatherChart";
+import WeatherCard from "./components/WeatherCard";
+import Navbar from "./components/Navbar";
+import PanelButton from "./components/PanelButton";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MiniWeatherCard from "./components/MiniWeatherCard";
 
 function App() {
-  const hourlyData = [];
-  for (
-    let i = 0;
-    i < weatherData.hourly.time.length &&
-    i < weatherData.hourly.temperature_2m.length;
-    i++
-  ) {
-    let oggetto = {
-      time: weatherData.hourly.time[i],
-      temperature_2m: Math.floor(weatherData.hourly.temperature_2m[i]),
-    };
-    hourlyData.push(oggetto);
-  }
+  const backgroundStyle = {
+    backgroundImage: `url('img/b.png')`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+  };
 
   return (
-    <div className="App">
-      <h1>Previsore Climatico</h1>
-      <WeatherCard data={weatherData.current} />
-      <h1>Temperature nei prossimi 7 giorni</h1>
-      <WeatherChart hourlyData={hourlyData} />
+    <div className="App" style={backgroundStyle}>
+      <Navbar />
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <PanelButton />
+            <WeatherCard data={weatherData.current} />
+          </div>
+          <div className="col-md-6">
+            <MiniWeatherCard data={weatherData.daily} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

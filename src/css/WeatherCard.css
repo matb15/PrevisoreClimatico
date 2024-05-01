@@ -1,0 +1,54 @@
+.weather-card {
+  position: relative;
+  width: 1000px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden; 
+  border: 2px solid #ffffff;
+}
+
+.weather-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-details p {
+  margin: 3px 0;
+  color: white;
+}
+
+.mini-weather-card {
+  position: relative;
+  width: 400px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden; 
+  border: 2px solid #ffffff;
+}
+
+.mini-container{
+  margin-top: -120px;
+}
+
+.mini-weather-info{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: "Courier New";
+  font-size: 20px;
+  color: white;
+}

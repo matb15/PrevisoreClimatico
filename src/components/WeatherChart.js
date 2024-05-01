@@ -7,7 +7,7 @@ import {
   PointElement,
   Tooltip,
 } from "chart.js";
-import "./TemperatureChart.css";
+import "../css/TemperatureChart.css";
 
 Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip);
 

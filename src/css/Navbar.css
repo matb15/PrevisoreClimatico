@@ -1,0 +1,38 @@
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20x;
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin-left: 20px;
+  font-family: "Courier New";
+}
+
+.search-container input {
+  padding: 8px; 
+  border: 1px solid #ccc;
+  font-size: 8px;
+  font-family: "Courier New";
+}
+
+.search-container button {
+  padding: 8px 16px; 
+  border: none; 
+  background-color: #333; 
+  color: white; 
+  cursor: pointer; 
+  border: 1px solid #ccc;
+  font-size: 8px;
+  margin-right: 20px;
+  font-family: "Courier New";
+}
+
+.search-container input {
+  margin-left: auto;
+}
