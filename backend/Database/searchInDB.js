@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb'
-
 //Definiamo il database che vogliamo usare del mongodb
 //const url = "mongodb+srv://AdminMeteo:abcde123@meteo.aiaoufr.mongodb.net/"
 
@@ -22,5 +21,4 @@ async function getDocument(url, dbName, CollectionName, query) {
         await client.close()
     }
 }
-export  default getDocument
-
+export default getDocument

@@ -1,8 +1,8 @@
 import React from "react";
 import "./App.css";
 import weatherData from "./weatherData.json";
-import WeatherCard from "./WeatherCard";
-import WeatherChart from "./WeatherChart";
+import WeatherCard from "./WeatherCard.js";
+import WeatherChart from "./WeatherChart.js";
 
 function App() {
   const hourlyData = [];
@@ -16,14 +16,19 @@ function App() {
       time: weatherData.hourly.time[i],
       temperature_2m: Math.floor(weatherData.hourly.temperature_2m[i]),
     };
+    //Oggetto per grafico
     hourlyData.push(oggetto);
   }
 
   return (
+    
     <div className="App">
+       
       <h1>Previsore Climatico</h1>
       <WeatherCard data={weatherData.current} />
+      
       <h1>Temperature nei prossimi 7 giorni</h1>
+      
       <WeatherChart hourlyData={hourlyData} />
     </div>
   );

@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import dotenv from "dotenv";
-
+import getDocument from "./Database/searchInDB.js";
 dotenv.config({ path: "../.env" });
 
 const app = express();
@@ -29,10 +29,10 @@ app.get("/api/data/:name", async (req, res) => {
   const name = req.params.name;
 
   try {
-    const response = await axios.get(
-      `https://geocoding-api.open-meteo.com/v1/search?name=${name}&language=it`
-    );
+    const response = await axios.get(`https://geocoding-api.open-meteo.com/v1/search?name=${name}&language=it`);
     res.json(response.data);
+
+
   } catch (error) {
     console.error("Errore durante la richiesta all'API esterna:", error);
     res.status(500).send("Errore durante la richiesta all'API esterna");

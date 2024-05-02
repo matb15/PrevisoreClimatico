@@ -6,6 +6,7 @@ import {
   LineElement,
   PointElement,
   Tooltip,
+  
 } from "chart.js";
 import "./TemperatureChart.css";
 
@@ -13,6 +14,7 @@ Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip);
 
 function TemperatureChart({ hourlyData }) {
   const timeLabels = hourlyData.map((entry) => {
+
     const date = new Date(entry.time);
     const formattedDate = date.toLocaleDateString();
     const formattedTime = date.toLocaleTimeString([], {
