@@ -1,9 +1,7 @@
 import express from "express";
 import cors from "cors";
 import axios from "axios";
-import dotenv from "dotenv";
-import getDocument from "./Database/searchInDB.js";
-dotenv.config({ path: "../.env" });
+require("dotenv").config({ path: "../.env" });
 
 const app = express();
 const port = process.env.EX_port || 3000;
@@ -13,21 +11,21 @@ app.use(express.json());
 
 //Routes
 
-app.get("/api/data/:lat/:long", async (req, res) => {
-  const lat = req.params.lat;
-  const long = req.params.long;
+// app.get("/api/data/:lat/:long", async (req, res) => {
+//   const lat = req.params.lat;
+//   const long = req.params.long;
 
-  try {
-    const response = getForecast(lat, long);
-    res.json(response.data);
-  } catch (error) {
-    console.error("Errore durante la richiesta all'API esterna:", error);
-    res.status(500).send("Errore durante la richiesta all'API esterna");
-  }
-});
+//   try {
+//     const response = getForecast(lat, long);
+//     res.json(response.data);
+//   } catch (error) {
+//     console.error("Errore durante la richiesta all'API esterna:", error);
+//     res.status(500).send("Errore durante la richiesta all'API esterna");
+//   }
+// });
 
 app.get("/api/data/:name", async (req, res) => {
-  const location = req.params.name;
+  const location = req.params.name.toLowerCase;
   try {
     const apiLoc = await getLocation(location);
     const name = apiLoc.results[0].name;
