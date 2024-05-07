@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import axios from "axios";
 import dotenv from "dotenv";
-
+import getDocument from "./Database/searchInDB.js";
 dotenv.config({ path: "../.env" });
 
 const app = express();

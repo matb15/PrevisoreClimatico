@@ -1,4 +1,3 @@
-import { Console } from 'console'
 import { MongoClient } from 'mongodb'
 
 async function InsertInDocument(url, nomeDB, collectionName, document) {
