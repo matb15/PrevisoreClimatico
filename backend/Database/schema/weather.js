@@ -9,9 +9,9 @@ const dataWeather = schemaForMongoose(
         "latitude": { type: Number },
         "longitude": { type: Number },
         "elevation": { type: Number },
-        "date": { type: Date },
+        "date": { type: String },
         "current": {
-            "time": { type: Date },
+            "time": { type: String },
             "temperature_2m": { type: Number },
             "relative_humidity_2m": { type: Number },
             "precipitation": { type: Number },

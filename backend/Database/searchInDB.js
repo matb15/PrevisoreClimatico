@@ -1,6 +1,6 @@
 import connessione from './connessioneDB.js';
 import mongoose from 'mongoose';
-import dataWeather from './Schema/weather.js';
+import dataWeather from './schema/weather.js';
 
 //Definiamo il database che vogliamo usare del mongodb
 
@@ -17,7 +17,7 @@ import dataWeather from './Schema/weather.js';
 async function searchInDocument(cityName, date) {
     connessione()
     const collezione = mongoose.model('dataWeather', dataWeather, 'Prova')
-    const ricerca = await collezione.findOne({ "cityName": cityName, "date": date })
+    const ricerca = await collezione.findOne({ "cityName": 'Milano' })
     console.log(ricerca)
 }
 export default searchInDocument
