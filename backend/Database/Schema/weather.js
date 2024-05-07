@@ -9,7 +9,7 @@ const dataWeather = schemaForMongoose(
         "latitude": { type: Number },
         "longitude": { type: Number },
         "elevation": { type: Number },
-        "date": { type: Date },
+        "date": { type: String },
         "current": {
             "time": { type: Date },
             "temperature_2m": { type: Number },
@@ -30,6 +30,6 @@ const dataWeather = schemaForMongoose(
             "temperature_2m_max": { type: Number },
             "temperature_2m_min": { type: Number }
         }
-    })
+    });
 
 export default dataWeather

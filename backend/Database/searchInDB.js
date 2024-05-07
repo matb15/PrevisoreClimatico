@@ -1,24 +1,23 @@
-import { MongoClient } from 'mongodb'
+import connessione from './connessioneDB.js';
+import mongoose from 'mongoose';
+import dataWeather from './Schema/weather.js';
+
 //Definiamo il database che vogliamo usare del mongodb
+
 //const url = "mongodb+srv://AdminMeteo:abcde123@meteo.aiaoufr.mongodb.net/"
 
 //Scriviamo una funzione che legge i documenti del DB
 //Prima ci connettiamo con MongoClient(Url_mongo)
 //Successivamente dobbiamo passare il nome del db
-//Successivamente la Collezione 
+//Successivamente la Collezione
 //Infinite la Query per trovare il campo
 
-async function getDocument(url, dbName, CollectionName, query) {
-    const client = new MongoClient(url)
+//Funzione asincrona che cerca NomeCittà e Data intera con mongoose
 
-    try {
-        await client.connect();
-        const db = client.db(dbName)
-        const collectionSearched = db.collection(CollectionName)
-        return console.log(await collectionSearched.findOne(query))
-
-    } finally {
-        await client.close()
-    }
+async function searchInDocument(cityName, date) {
+    connessione()
+    const collezione = mongoose.model('dataWeather', dataWeather, 'Prova')
+    const ricerca = await collezione.findOne({ "cityName": cityName, "date": date })
+    console.log(ricerca)
 }
-export default getDocument
+export default searchInDocument
