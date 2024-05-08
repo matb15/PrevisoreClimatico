@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import connessione from "./connessioneDB.js";
+import connessione from "./IndexDB.js";
 import dataWeather from "./schema/weather.js";
 import dotenv from "dotenv"
 
@@ -11,6 +11,6 @@ async function insertIntoDB(cityName, date) {
     const collezione = mongoose.model('dataWeather', dataWeather, CollectionName)
     let tempo = await collezione.create({ "cityName": cityName, "date": date })
     console.log(tempo)
-    mongoose.disconnect()
 }
+
 export default insertIntoDB
