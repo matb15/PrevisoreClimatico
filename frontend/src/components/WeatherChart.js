@@ -6,15 +6,13 @@ import {
   LineElement,
   PointElement,
   Tooltip,
-  
 } from "chart.js";
-import "./TemperatureChart.css";
+import "../css/TemperatureChart.css";
 
 Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip);
 
 function TemperatureChart({ hourlyData }) {
   const timeLabels = hourlyData.map((entry) => {
-
     const date = new Date(entry.time);
     const formattedDate = date.toLocaleDateString();
     const formattedTime = date.toLocaleTimeString([], {
@@ -31,12 +29,12 @@ function TemperatureChart({ hourlyData }) {
         label: "Temperature",
         data: hourlyData.map((entry) => entry.temperature_2m),
         fill: false,
-        borderColor: "rgb(75, 192, 192)",
+        borderColor: "rgb(10, 46, 207)",
         tension: 0.1,
-        pointBackgroundColor: "rgb(75, 192, 192)",
-        pointBorderColor: "rgb(75, 192, 192)",
-        pointHoverBackgroundColor: "rgb(75, 192, 192)",
-        pointHoverBorderColor: "rgb(75, 192, 192)",
+        pointBackgroundColor: "rgb(17, 32, 99)",
+        pointBorderColor: "rgb(255, 255, 255)",
+        pointHoverBackgroundColor: "rgb(0, 47, 255)",
+        pointHoverBorderColor: "rgb(0, 47, 255)",
       },
     ],
   };
@@ -57,12 +55,7 @@ function TemperatureChart({ hourlyData }) {
     scales: {
       x: {
         type: "category",
-        ticks: {
-          callback: function (value) {
-            const date = new Date(value);
-            return date.toLocaleDateString();
-          },
-        },
+        labels: timeLabels,
       },
       y: {
         type: "linear",
