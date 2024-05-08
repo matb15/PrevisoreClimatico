@@ -34,5 +34,16 @@
 }
 
 .search-container input {
-  margin-left: auto;
+  margin-left: 700px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
 }
