@@ -19,6 +19,7 @@ router.get("/api/data/:name", async (req, res) => {
     const apiWeat = await getWeather(lat, long);
 
     const response = await addPrev(apiLoc, apiWeat);
+
     res.json(response);
   } catch (error) {
     console.error("Errore durante la richiesta all'API esterna:", error);
