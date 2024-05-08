@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import WeatherChart from "./WeatherChart";
-import weatherData from "../weatherData.json";
 import "../css/PanelButton.css";
 
-function ChartButton() {
+function PanelButton({ data }) {
   const [isChartVisible, setIsChartVisible] = useState(false);
 
   const toggleChartVisibility = () => {
@@ -13,13 +12,12 @@ function ChartButton() {
   const hourlyData = [];
   for (
     let i = 0;
-    i < weatherData.hourly.time.length &&
-    i < weatherData.hourly.temperature_2m.length;
+    i < data.hourly.time.length && i < data.hourly.temperature_2m.length;
     i++
   ) {
     let oggetto = {
-      time: weatherData.hourly.time[i],
-      temperature_2m: Math.floor(weatherData.hourly.temperature_2m[i]),
+      time: data.hourly.time[i],
+      temperature_2m: Math.floor(data.hourly.temperature_2m[i]),
     };
     hourlyData.push(oggetto);
   }
@@ -39,4 +37,4 @@ function ChartButton() {
   );
 }
 
-export default ChartButton;
+export default PanelButton;
