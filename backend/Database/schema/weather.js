@@ -18,6 +18,7 @@ const dataWeather = schemaForMongoose({
     wind_speed_10m: { type: Number },
   },
   hourly: {
+    time: [{ type: String }],
     temperature_2m: [{ type: Number }],
     relative_humidity_2m: [{ type: Number }],
     precipitation_probability: [{ type: Number }],
@@ -27,9 +28,10 @@ const dataWeather = schemaForMongoose({
     wind_speed_10m: [{ type: Number }],
   },
   daily: {
-    weather_code: { type: Number },
-    temperature_2m_max: { type: Number },
-    temperature_2m_min: { type: Number },
+    time: [{ type: String }],
+    weather_code: [{ type: Number }],
+    temperature_2m_max: [{ type: Number }],
+    temperature_2m_min: [{ type: Number }],
   },
 });
 
