@@ -14,7 +14,7 @@ function App() {
 
   const handleSearch = () => {
     axios
-      .get(`http://localhost:3001/api/data/${searchQuery}`)
+      .get(`http://backend:3001/api/data/${searchQuery}`)
       .then((response) => {
         setData(response.data);
       })

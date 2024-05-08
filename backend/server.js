@@ -4,7 +4,7 @@ import "dotenv/config";
 import { db } from "./database/IndexDB.js";
 
 const app = express();
-const port = process.env.EX_PORT || 3000;
+const port = process.env.EX_PORT || 3001;
 
 app.use(express.json());
 app.use("/", router);
