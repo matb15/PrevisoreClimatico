@@ -2,11 +2,14 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv"
 dotenv.config({ path: "../../.env" })
-const mongoDB = mongoose
-const stringaDiConnessione = process.env.STRINGADB
+
+const user = process.env.nomeUT
+const passwd = process.env.Password
+const DB = process.env.NameDB
+
 async function connessione() {
     try {
-        await mongoose.connect(stringaDiConnessione)
+        await mongoose.connect(`mongodb+srv://${user}:${passwd}@meteo.aiaoufr.mongodb.net/${DB}`)
         console.log("Connessione al database avvenuta con successo")
     } catch (error) {
         console.log(error)
