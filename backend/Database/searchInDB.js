@@ -1,4 +1,4 @@
-import connessione from './connessioneDB.js';
+import connessione from './IndexDB.js';
 import mongoose from 'mongoose';
 import dataWeather from './schema/weather.js';
 import dotenv from "dotenv"
