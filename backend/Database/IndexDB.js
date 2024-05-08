@@ -1,34 +1,33 @@
-//Connessione db con mongoose
 import mongoose from "mongoose";
-import dotenv from "dotenv"
-import searchInDocument from "./searchInDB";
-import insertIntoDB from "./insertInDB";
-import dataWeather from "./schema/weather";
+import "dotenv/config";
+import searchInDocument from "./searchInDB.js";
+import insertIntoDB from "./insertInDB.js";
+import dataWeather from "./schema/weather.js";
 
-dotenv.config({ path: "../../.env" })
+const user = process.env.USER;
+const passwd = process.env.PASSW;
+const dbName = process.env.DB_NAME;
 
-const user = process.env.nomeUT
-const passwd = process.env.Password
-const DB = process.env.NameDB
-
-let db = {}
+let db = {};
 
 async function connect() {
-    try {
-        await mongoose.connect(`mongodb+srv://${user}:${passwd}@meteo.aiaoufr.mongodb.net/${DB}`)
-        console.log("Connessione al database avvenuta con successo")
-    } catch (error) {
-        console.log(error)
-    }
+  try {
+    await mongoose.connect(
+      `mongodb+srv://${user}:${passwd}@meteo.aiaoufr.mongodb.net/${dbName}?retryWrites=true&w=majority&appName=Meteo`
+    );
+    console.log("Connection to MongoDB successful");
+  } catch (error) {
+    console.log(error);
+  }
 }
 async function disconnect() {
-    await mongoose.disconnect()
+  await mongoose.disconnect();
 }
 
-db.connect = connect
-db.disconnect = disconnect
-db.searchInDocument = searchInDocument
-db.insertIntoDB = insertIntoDB
-db.dataWeather = dataWeather
+db.connect = connect;
+db.disconnect = disconnect;
+db.getData = searchInDocument;
+db.insertData = insertIntoDB;
+db.dataWeather = dataWeather;
 
-export { db }
+export { db };

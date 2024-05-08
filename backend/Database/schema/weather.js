@@ -4,7 +4,7 @@ const schemaForMongoose = mongoose.Schema;
 
 const dataWeather = schemaForMongoose({
   cityName: { type: String },
-  countryCode: { type: String },
+  code: { type: String },
   latitude: { type: Number },
   longitude: { type: Number },
   elevation: { type: Number },
