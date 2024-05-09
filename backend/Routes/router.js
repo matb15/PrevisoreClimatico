@@ -26,7 +26,6 @@ router.get("/api/data/:name", async (req, res) => {
   }
 
   if (result) {
-    console.log("vecchio");
     res.json(result);
   } else {
     const lat = apiLoc.results[0].latitude;
@@ -35,7 +34,6 @@ router.get("/api/data/:name", async (req, res) => {
     try {
       apiWeat = await getWeather(lat, long);
       result = await db.insertData(apiLoc, apiWeat);
-      console.log("nuovo");
       res.json(result);
     } catch (error) {
       console.error("Errore durante la richiesta all'API esterna:", error);

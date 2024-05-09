@@ -17,7 +17,7 @@
 .search-container input {
   padding: 8px;
   border: 1px solid #ccc;
-  font-size: 10px;
+  font-size: 15px;
   font-family: "Courier New";
 }
 
@@ -28,7 +28,7 @@
   color: white;
   cursor: pointer;
   border: 1px solid #ccc;
-  font-size: 10px;
+  font-size: 15px;
   margin-right: 20px;
   font-family: "Courier New";
 }
